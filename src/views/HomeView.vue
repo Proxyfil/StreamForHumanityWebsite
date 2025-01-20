@@ -48,13 +48,13 @@ export default {
         <option v-bind:value="'Tous'">
           Tous
         </option>
-        <option v-bind:key="option" v-for="option in Object.keys(streamersData)" v-bind:value="option">
+        <option v-bind:key="option" v-for="option in Object.keys(streamersData).sort()" v-bind:value="option">
           {{ option }}
         </option>
       </select>
     </div>
     <div class="w-full grid grid-cols-6 gap-x-4 gap-y-6 mt-8" v-if="selected == 'Tous'" id="infographics">
-      <div class="flex flex-col items-center" v-for="option in Object.keys(streamersData)" v-bind:key="option">
+      <div class="flex flex-col items-center" v-for="option in Object.keys(streamersData).sort()" v-bind:key="option">
         <a v-bind:href="streamersData[option].linkHD" target="_blank" class="min-h-[300px] blur-load" v-bind:style="{ 'background-image': 'url(' + streamersData[option].lazyload + ')' }"><img class="w-72 min-h-full" v-bind:alt="option" v-bind:src="streamersData[option].img" loading="lazy"></a>
         <p class="text-white mt-2">{{ option }}</p>
       </div>
